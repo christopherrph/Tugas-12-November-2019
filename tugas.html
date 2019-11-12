@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif;" onload="printmenu()">
+
+    <script>
+        function Submit(){
+            var jawab = prompt("APAKAH ANDA SIAP MENJADI SEORANG CHUNIN? (y/n)")
+            if(jawab=='y' || jawab=='Y'){
+                var no1 = document.getElementsByName('soal1');
+                for(var i=0; i<no1.length; i++){
+                    if(no1[i].checked){
+                        no1 = no1[i].value
+                    }
+                }
+                var no2 = document.getElementsByName('soal2');
+                for(var i=0; i<no2.length; i++){
+                    if(no2[i].checked){
+                        no2 = no2[i].value
+                    }
+                }
+                var no3 = document.getElementsByName('soal3');
+                for(var i=0; i<no3.length; i++){
+                    if(no3[i].checked){
+                        no3 = no3[i].value
+                    }
+                }
+                var no4 = document.getElementsByName('soal4');
+                for(var i=0; i<no4.length; i++){
+                    if(no4[i].checked){
+                        no4 = no4[i].value
+                    }
+                }
+                console.log(isNaN(no1))
+                console.log(isNaN(no4))
+                if(isNaN(no1)==true || isNaN(no2)==true|| isNaN(no3)==true || isNaN(no4)==true){
+                alert("MASIH ADA SOAL YANG BELUM ANDA ISI!!!! JANGAN MENYERAH!!")
+                }else{
+                var nilai = parseInt(no1) + parseInt(no2) +parseInt(no3) +parseInt(no4);
+                if(nilai>50){
+                    document.getElementById("nilai").innerHTML = `NILAI ANDA ${nilai} <br> SELAMAT ANDA RESMI MENJADI SEORANG CHUNIN!`;
+                    alert()
+                }else{
+                    document.getElementById("nilai").innerHTML = `NILAI ANDA ${nilai} <br> ANDA TIDAK LULUS! SILAHKAN COBA LAGI DI UJIAN BERIKUTNYA`;
+                }
+                }
+            }
+        }
+
+    </script>
+
+    <center>
+    <img src="https://vignette.wikia.nocookie.net/naruto/images/5/5f/Ch%C5%ABnin_Examiners.png/revision/latest?cb=20150214121630" 
+    alt="HMMMMMMMM" height="300px;">    
+    <h1>UJIAN CHUNIN</h1>
+    <table class="extable">
+        <thead>
+            <tr style="height: 50px;">
+                <td>1.</td>
+                <td style="width: 500px; text-align:left;" colspan="3">Which of these is NOT a member of the Nara clan?</td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="soal1" value="0">Yoshino</td>
+                <td><input type="radio" name="soal1" value="0">Ensui</td>
+                <td><input type="radio" name="soal1" value="0">Shikaku</td>
+                <td><input type="radio" name="soal1" value="25">Jiraiya</td>
+            </tr>
+            <tr style="height: 50px;">
+                <td>2.</td>
+                <td style="width: 500px; text-align:left;" colspan="3">Which famed clan was completely massacred?</td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="soal2" value="0">Hyuuga</td>
+                <td><input type="radio" name="soal2" value="25">Uchiha</td>
+                <td><input type="radio" name="soal2" value="0">Uzamaki</td>
+                <td><input type="radio" name="soal2" value="0">Nara</td>
+            </tr>
+            <tr style="height: 50px;">
+                <td>3.</td>
+                <td style="width: 500px; text-align:left;" colspan="3">What is this hand sign?</td>
+            </tr>
+            <tr>
+                <td colspan="4" style="padding-bottom: 10px;"><img src="https://static3.thequizimages.com/wordpress/wp-content/uploads/2018/01/tiger-hand-sign.jpg?q=50&fit=crop&w=963&h=505&dpr=1.5" width="300px;"></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="soal3" value="25">Tiger</td>
+                <td><input type="radio" name="soal3" value="0">Boar</td>
+                <td><input type="radio" name="soal3" value="0">Serpent</td>
+                <td><input type="radio" name="soal3" value="0">Dragon</td>
+            </tr>
+            <tr style="height: 50px;">
+                <td>4.</td>
+                <td style="width: 500px; text-align:left;" colspan="3">Which of these characters has Kurama's chakra?</td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="soal4" value="25">Sora</td>
+                <td><input type="radio" name="soal4" value="0">Menma</td>
+                <td><input type="radio" name="soal4" value="0">Guren</td>
+                <td><input type="radio" name="soal4" value="0">Haku</td>
+            </tr>
+        </thead>
+        <tbody id="menu">
+        </tbody>
+    </table>
+    <h1 id="nilai"></h1>
+    <button onclick="Submit()">SUBMIT</button>
+    
+    </center>
+
+    <style>
+            .inputan{
+                width: 300px;
+                height: 15px;
+                border-radius: 15px;
+                padding: 10px;
+            }
+
+            .extable {
+                border-collapse: collapse;
+                text-align: center;
+            }
+
+            .extable th, .extable tr, .extable td{
+                /* border: 1px solid black; */
+                width: 100px;
+            }
+    </style>
+
+</body>
+</html>
